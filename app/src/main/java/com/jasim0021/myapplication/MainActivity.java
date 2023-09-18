@@ -15,12 +15,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button btnNext;
         btnNext = findViewById(R.id.next_btn);
+
+        Intent intent ;
+        intent = new Intent(MainActivity.this,Activity2.class);
+        intent.putExtra("title","Home");
+        intent.putExtra("name","Sk Jasimuddin");
+        intent.putExtra("roll_no",4);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent ;
-                intent = new Intent(MainActivity.this,Activity2.class);
+
                 startActivity(intent);
             }
         });
