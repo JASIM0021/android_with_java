@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.StylesAndThems" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+
+    <style name="myThem" parent="Theme.Material3.DayNight.NoActionBar" >
+    </style>
+    <style name="myTextBold" parent="Theme.Material3.DayNight.NoActionBar" >
+        <item name="android:textSize">25sp</item>
+        <item name="textInputStyle">bold</item>
+        <item name="android:textColor">#FD0404</item>
+    </style>
+</resources>
