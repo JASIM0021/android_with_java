@@ -11,5 +11,28 @@
        android:layout_height="wrap_content"
       android:id="@+id/listView"
       />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      >
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+         android:text="Select an id Proof"
+          android:textSize="20sp"
+          />
+      <Spinner
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+         android:id="@+id/spiner_list"/>
+   </LinearLayout>
+
+   <AutoCompleteTextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      android:id="@+id/auto_Complete"
+       android:layout_marginTop="100dp"
+       android:hint="Enter city here"
+       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
