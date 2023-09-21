@@ -79,7 +79,16 @@ public class MainActivity extends AppCompatActivity {
 
 //        AutoComplete
 
+arr_city.add("Bardhaman");
+arr_city.add("Kolkata");
+arr_city.add("Purolia");
+arr_city.add("Asansol");
+arr_city.add("birbhum");
+arr_city.add("bankura");
 
+ArrayAdapter actvAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1,arr_city);
+
+autoCompleteTextView.setAdapter(actvAdapter);
 
     }
 }
