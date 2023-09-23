@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,6 +26,8 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
     Context context;
 
     ArrayList<ContactModel> arrayContact;
+    private int lastPosition = -1 ;
+
     RecyclerContactAdapter(Context context, ArrayList<ContactModel> arrayContact){
         this.context=context;
         this.arrayContact=arrayContact;
@@ -43,6 +47,7 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
         holder.imgContact.setImageResource(arrayContact.get(position).img);
         holder.txtName.setText(arrayContact.get(position).name);
         holder.txtNumber.setText(arrayContact.get(position).number);
+        setAnimation(holder.itemView,position);
         holder.contactRow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,6 +119,8 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
                 return true;
             }
         });
+
+
     }
 
     @Override
@@ -137,5 +144,17 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
            contactRow= itemView.findViewById(R.id.contactRow);
         }
     }
+
+    private void setAnimation(View viewtoAnimate , int position){
+//       if (position>lastPosition){
+           Animation slide = AnimationUtils.loadAnimation(context, R.anim.rcy_anim);
+
+           viewtoAnimate.startAnimation(slide);
+
+//           lastPosition = position;
+//       }
+
+    }
+
 
 }
