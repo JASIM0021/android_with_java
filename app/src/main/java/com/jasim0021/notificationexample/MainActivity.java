@@ -38,6 +38,31 @@ public class MainActivity extends AppCompatActivity {
 
         PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this,REQUEST_CODE,notiFicationIntend,PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
+//        Big Picture Style
+        Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle()
+                .bigPicture(((BitmapDrawable)(ResourcesCompat.getDrawable(getResources(),R.drawable.lg,null))).getBitmap())
+                .bigLargeIcon(largeIcon)
+                .setBigContentTitle("big picture Title")
+                .setSummaryText("Big picture subTitle");
+
+//        INBOX STYLE
+        Notification.InboxStyle inboxStyle = new Notification.InboxStyle()
+                .addLine("Line 1")
+                .addLine("Line 2")
+                .addLine("Line 3")
+                .addLine("Line 4")
+                .addLine("Line 5")
+                .addLine("Line 6")
+                .addLine("Line 7")
+                .addLine("Line 8")
+                .addLine("Line 9")
+                .addLine("Line 10")
+                .addLine("Line 11")
+                .setBigContentTitle("Full Message")
+                .setSummaryText("This is summery text in INboxStyle");
+
+
+
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
              notification = new Notification.Builder(this)
                     .setLargeIcon(largeIcon)
@@ -45,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                     .setContentText("New Message")
                     .setSubText("New Message from jasim")
                      .setContentIntent(pendingIntent)
+                     .setStyle(inboxStyle)
+                     .setAutoCancel(false)
+//                     for new version for stay notification
+                     .setOngoing(true)
                     .setChannelId(CHANEL_ID)
                     .build();
              nm.createNotificationChannel(new NotificationChannel(CHANEL_ID,"New Channel",NotificationManager.IMPORTANCE_HIGH));
@@ -54,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
                     .setSmallIcon(R.drawable.ic_launcher_background)
                     .setContentText("New Message")
                     .setContentIntent(pendingIntent)
+                    .setStyle(inboxStyle)
+                    .setAutoCancel(false)
+                    .setOngoing(true)
                     .setSubText("New Message from jasim")
 
                     .build();
