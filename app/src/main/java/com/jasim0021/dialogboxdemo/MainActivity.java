@@ -4,8 +4,11 @@ package com.jasim0021.dialogboxdemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,13 +17,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Terms and Conditon");
-        alertDialog.setIcon(R.drawable.baseline_info_24);
-        alertDialog.setMessage("Have you read all term and condion");
-
-        alertDialog.setButton("Yes , i've Read", (DialogInterface.OnClickListener) (dialogInterface, i) -> Toast.makeText(MainActivity.this, "Yes , you can proceed now", Toast.LENGTH_SHORT).show());
-        alertDialog.show();
+//        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//        alertDialog.setTitle("Terms and Conditon");
+//        alertDialog.setIcon(R.drawable.baseline_info_24);
+//        alertDialog.setMessage("Have you read all term and condion");
+//
+//        alertDialog.setButton("Yes , i've Read", (DialogInterface.OnClickListener) (dialogInterface, i) -> Toast.makeText(MainActivity.this, "Yes , you can proceed now", Toast.LENGTH_SHORT).show());
+//        alertDialog.show();
 
 //        with morethan one button
 //      AlertDialog.Builder deletedialog = new AlertDialog.Builder(MainActivity.this);
@@ -49,7 +52,19 @@ public class MainActivity extends AppCompatActivity {
 //      });
 //      deletedialog.show();
 
-
+//    customDialog
+        Dialog customDialog = new Dialog(this);
+        customDialog.setContentView(R.layout.custom_dialog);
+        Button okeyBtn = customDialog.findViewById(R.id.btnOkey);
+        customDialog.setCancelable(false);
+        okeyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Cancell", Toast.LENGTH_SHORT).show();
+                customDialog.dismiss();
+            }
+        });
+        customDialog.show();
 
     }
 
